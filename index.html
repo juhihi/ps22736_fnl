@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ASM-giohang</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="giohang">
+        <a onclick="showcart();"><img src="images/cart.png"><span id="countsp">0</span></a>
+    </div>
+    <div id="showcart">
+        <table>
+            <tr>
+                <th>STT</th>
+                <th>Hình</th>
+                <th>Tên sản phẩm</th>
+                <th>Đơn giá</th>
+                <th>Số lượng</th>
+                <th>Thành tiền ($B)</th>
+            </tr>
+            <tbody id="mycart">
+
+            </tbody>
+
+        </table>
+    </div>
+    <div class="boxcenter">
+        <div class="row mb header">
+            <h1> SIÊU THỊ TRỰC TUYẾN</h1>
+        </div>
+
+        <div class="row mb menu">
+            <ul>
+                <li><a href="index.html">Trang chủ</a></li>
+                <li><a href="#">Giỏ hàng</a></li>
+                <li><a href="#">Liên hệ</a></li>
+                <li><a href="#">Góp ý</a></li>
+                <li><a href="#">Hỏi đáp</a></li>
+                <li><a href="index2.html">Đăng Ký</a></li>
+            </ul>
+        </div>
+        <div class="row mb ">
+            <div class="row">
+                <div class="banner mb">
+                    <div class="bs">
+                        <img id="anh" src="img/1.png" alt="hinh" width="500" height="500">
+                            <div>
+                                    <button onclick="prev()"> => </button>
+                                    <button onclick="next()"> <= </button>
+                                           
+                            </div>
+                        </div>
+                </div>
+                
+            </div>
+            <div class="row">
+                <div class="boxsp mr">
+                    <div class="row img"><img src="images/1.png" alt=""></div>
+                    <p>$<span>10</span>B</p>
+                    <a href="#">Ngôi sao</a>
+                    <input type="number" name="soluong" min="1" max="10" value="1">
+                    <button onclick="themvaogiohang(this)">Đặt hàng</button>
+                </div>
+                <div class="boxsp mr">
+                    <div class="row img"><img src="images/2.png" alt=""></div>
+                    <p>$<span>20</span>B</p>
+                    <a href="#">Trái tim</a>
+                    <input type="number" name="soluong" min="1" max="10" value="1">
+                    <button onclick="themvaogiohang(this)">Đặt hàng</button>
+                </div>
+                <div class="boxsp ">
+                    <div class="row img"><img src="images/3.png" alt=""></div>
+                    <p>$<span>30</span>B</p>
+                    <a href="#">Hoa</a>
+                    <input type="number" name="soluong" min="1" max="10" value="1">
+                    <button onclick="themvaogiohang(this)">Đặt hàng</button>
+                </div>
+                <div class="boxsp mr">
+                    <div class="row img"><img src="images/4.png" alt=""></div>
+                    <p>$<span>40</span>B</p>
+                    <a href="#">Hình ảnh</a>
+                    <input type="number" name="soluong" min="1" max="10" value="1">
+                    <button onclick="themvaogiohang(this)">Đặt hàng</button>
+                </div>
+                <div class="boxsp mr">
+                    <div class="row img"><img src="images/5.png" alt=""></div>
+                    <p>$<span>50</span>B</p>
+                    <a href="#">Like</a>
+                    <input type="number" name="soluong" min="1" max="10" value="1">
+                    <button onclick="themvaogiohang(this)">Đặt hàng</button>
+                </div>
+                <div class="boxsp ">
+                    <div class="row img"><img src="images/6.jpg" alt=""></div>
+                    <p>$<span>60</span>B</p>
+                    <a href="#">nike f1</a>
+                    <input type="number" name="soluong" min="1" max="10" value="1">
+                    <button onclick="themvaogiohang(this)">Đặt hàng</button>
+                </div>
+                <div class="boxsp mr">
+                    <div class="row img"><img src="images/7.jpg" alt=""></div>
+                    <p>$<span>70</span>B</p>
+                    <a href="#">Giày</a>
+                    <input type="number" name="soluong" min="1" max="10" value="1">
+                    <button onclick="themvaogiohang(this)">Đặt hàng</button>
+                </div>
+                <div class="boxsp mr">
+                    <div class="row img"><img src="images/8.jpg" alt=""></div>
+                    <p>$<span>80</span>B</p>
+                    <a href="#">Giày nike</a>
+                    <input type="number" name="soluong" min="1" max="10" value="1">
+                    <button onclick="themvaogiohang(this)">Đặt hàng</button>
+                </div>
+                <div class="boxsp ">
+                    <div class="row img"><img src="images/9.jpg" alt=""></div>
+                    <p>$<span>90</span>B</p>
+                    <a href="#">Nike jordan</a>
+                    <input type="number" name="soluong" min="1" max="10" value="1">
+                    <button onclick="themvaogiohang(this)">Đặt hàng</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/cart.js"></script>
+</body>
+<script>
+    var images = [];
+    var index = 1;
+    var sohinh = 6;
+    for (var i = 1; i < sohinh; i++) {
+        images[i] = new Image();
+        images[i].src = "img/" + i + ".png";
+    }
+    function next() {
+        index++;
+        if (index >= images.length) index = 0;
+        var anh = document.getElementById("anh");
+        anh.src = images[index].src;
+    }
+    function prev() {
+        index--;
+        if (index < 0) index = images.length - 1;
+        var anh = document.getElementById("anh");
+        anh.src = images[index].src;
+    }
+</script>
+</html>
